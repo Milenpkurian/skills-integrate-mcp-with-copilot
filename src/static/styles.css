@@ -24,8 +24,36 @@ header {
   border-radius: 5px;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  text-align: left;
+}
+
 header h1 {
   margin-bottom: 10px;
+}
+
+.teacher-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.teacher-controls button,
+.dialog-actions button {
+  background-color: white;
+  color: #1a237e;
+}
+
+.teacher-controls button:hover,
+.dialog-actions button:hover {
+  background-color: #e8eaf6;
 }
 
 main {
@@ -111,18 +139,46 @@ section h3 {
 }
 
 .delete-btn {
-  background: none;
-  border: none;
+  background: white;
+  border: 1px solid #c62828;
   color: #c62828;
   cursor: pointer;
-  font-size: 14px;
-  padding: 2px 5px;
+  font-size: 13px;
+  padding: 5px 8px;
   transition: all 0.2s;
   border-radius: 3px;
 }
 
 .delete-btn:hover {
   background-color: #ffebee;
+}
+
+dialog {
+  width: min(420px, calc(100% - 32px));
+  margin: auto;
+  padding: 24px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.secondary-button {
+  border: 1px solid #1a237e;
 }
 
 .participants-section p {
@@ -192,9 +248,20 @@ button:hover {
   display: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+@media (max-width: 700px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
